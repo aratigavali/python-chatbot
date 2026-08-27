@@ -36,7 +36,12 @@ responses = {
     "hi":"hello",
     "study plan":"umm tell me about ur timetable",
     "bye":"okk have a good day ! ",
-    "coding":"developer do the coding in different languages.."
+    "coding":"developer do the coding in different languages..",
+    "explain machine learning": "Machine Learning is a branch of AI that allows computers to learn patterns from data and make predictions.",
+    "what is ai": "AI stands for Artificial Intelligence. It enables machines to perform tasks that normally require human intelligence.",
+    "study tips": "Study regularly, make short notes, practice questions, and take small breaks.",
+    "exam preparation": "Start with important topics, revise your notes, practice previous questions, and manage your study time.",
+    "python": "Python is a popular programming language used for web development, data analysis, automation, AI and Machine Learning."
     
 }
 #method / function to response of chatbot 
@@ -48,8 +53,24 @@ def getresponse(userquestion):
 
     if "sad" in userquestion:
         return "ohhh  dont worry ! all is welll !!"
+    
     elif "happy" in userquestion:
         return "ohooooooo !! i am so happy to hear that !"
+
+    elif "study" in userquestion:
+        return "Study Tip: Choose one topic, study for 25 minutes, take a 5-minute break, and then revise what you learned."
+
+    elif "quiz" in userquestion:
+        return "Quiz Time! What is the full form of AI?"
+
+    elif "explain python" in userquestion:
+        return "Python is a high-level programming language known for its simple syntax. It is widely used in AI, Machine Learning, Data Science, and web development."
+
+    elif "explain machine learning" in userquestion:
+        return "Machine Learning is a branch of AI where computers learn patterns from data and use them to make predictions or decisions."
+
+    elif "explain ai" in userquestion:
+        return "Artificial Intelligence is the ability of machines to perform tasks that normally require human intelligence, such as learning, reasoning, and problem-solving."
 
     #normal  question 
     for eachkey in responses:
@@ -69,6 +90,18 @@ def getresponse(userquestion):
 while True : 
 
     userinput = input("please ask your question :  ")
+
+    if "quiz" in userinput.lower():
+        print("🧠 Quiz Time!")
+        answer = input("What is the full form of AI? ")
+
+        if answer.lower().strip() == "artificial intelligence":
+            print("🎉 Correct! Well done!")
+        else:
+            print("❌ Not quite. The correct answer is Artificial Intelligence.")
+
+        continue
+
     reply = getresponse(userinput)
 
     time.sleep(1)
